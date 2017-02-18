@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#2E7D32</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorButtonGreen">#B9F6CA</color>
+    <color name="greenButtonText">#2E7D32</color>
+    <color name="colorButtonPurple">#EA80FC</color>
+    <color name="purpleButtonText">#6A1B9A</color>
+    <color name="colorButtonReset">#AA00FF</color>
+    <color name="resetButtonText">#F3E5F5</color>
+    <color name="kidText">#424242</color>
+    <color name="scoreText">#212121</color>
+    <color name="counterText">#212121</color>
+</resources>
