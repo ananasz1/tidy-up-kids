@@ -34,16 +34,66 @@ public class MainActivity extends AppCompatActivity {
     int BookNumberOfToys = 10;
     int BookQuantityOfToys = 0;
 
+    TextView displayKid1;
+    TextView displayKid2;
+    TextView displayDoll;
+    TextView displayPlush;
+    TextView displayCar;
+    TextView displayBook;
+
+    static final String STATE_KID1_SCORE = "scoreKid1";
+    static final String STATE_KID2_SCORE = "scoreKid2";
+    static final String STATE_DOLL = "quantityOfDoll";
+    static final String STATE_PLUSH = "quantityOfplush";
+    static final String STATE_CAR = "quantityOfCar";
+    static final String STATE_BOOK = "quantityOfBook";
+
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
 
+    /**
+     *Set to save and restore activity state step by step. It doesn't allow to the app to forget the values when rotating
+     */
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(STATE_KID1_SCORE, scoreKid1);
+        savedInstanceState.putInt(STATE_KID2_SCORE, scoreKid2);
+        savedInstanceState.putInt(STATE_DOLL, DollQuantityOfToys);
+        savedInstanceState.putInt(STATE_PLUSH, PlushQuantityOfToys);
+        savedInstanceState.putInt(STATE_CAR, CarQuantityOfToys);
+        savedInstanceState.putInt(STATE_BOOK, BookQuantityOfToys);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        scoreKid1 = savedInstanceState.getInt(STATE_KID1_SCORE);
+        scoreKid2 = savedInstanceState.getInt(STATE_KID2_SCORE);
+        DollQuantityOfToys = savedInstanceState.getInt(STATE_DOLL);
+        PlushQuantityOfToys = savedInstanceState.getInt(STATE_PLUSH);
+        CarQuantityOfToys = savedInstanceState.getInt(STATE_CAR);
+        BookQuantityOfToys = savedInstanceState.getInt(STATE_BOOK);
+        redisplay();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
+        displayKid1 = (TextView) findViewById(R.id.kid_1_score);
+        displayKid2 = (TextView) findViewById(R.id.kid_2_score);
+        displayDoll = (TextView) findViewById(R.id.dollQuantity);
+        displayPlush = (TextView) findViewById(R.id.plushQuantity);
+        displayCar = (TextView) findViewById(R.id.carQuantity);
+        displayBook = (TextView) findViewById(R.id.bookQuantity);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -54,15 +104,16 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void K1PushButton(int pointsPerToy) {
-            scoreKid1 = scoreKid1 + pointsPerToy;
-            displayForKid1(scoreKid1);
-        }
+        scoreKid1 = scoreKid1 + pointsPerToy;
+        displayForKid1(scoreKid1);
+
+    }
 
 
     public void K2PushButton(int pointsPerToy) {
-            scoreKid2 = scoreKid2 + pointsPerToy;
-            displayForKid2(scoreKid2);
-        }
+        scoreKid2 = scoreKid2 + pointsPerToy;
+        displayForKid2(scoreKid2);
+    }
 
     /**
      * Increase the score for Kid 1 by 4 points
@@ -199,8 +250,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-         * Set the scores to 0
-         */
+     * Set the scores to 0
+     */
     public void resetScore(View v) {
         scoreKid1 = 0;
         scoreKid2 = 0;
@@ -208,8 +259,7 @@ public class MainActivity extends AppCompatActivity {
         PlushQuantityOfToys = 0;
         CarQuantityOfToys = 0;
         BookQuantityOfToys = 0;
-
-
+        
         displayForKid1(scoreKid1);
         displayForKid2(scoreKid2);
         displaySetCounterText(DollQuantityOfToys + " / " + DollNumberOfToys, (TextView) findViewById(R.id.dollQuantity));
@@ -217,6 +267,17 @@ public class MainActivity extends AppCompatActivity {
         displaySetCounterText(CarQuantityOfToys + " / " + CarNumberOfToys, (TextView) findViewById(R.id.carQuantity));
         displaySetCounterText(BookQuantityOfToys + " / " + BookNumberOfToys, (TextView) findViewById(R.id.bookQuantity));
 
+    }
+    /**
+     * Display the quantity after onRestore
+     */
+    public void redisplay(){
+        displayKid1.setText(String.valueOf(scoreKid1));
+        displayKid2.setText(String.valueOf(scoreKid2));
+        displayDoll.setText(String.valueOf(DollQuantityOfToys + " / " + DollNumberOfToys));
+        displayPlush.setText(String.valueOf(PlushQuantityOfToys + " / " + PlushNumberOfToys));
+        displayCar.setText(String.valueOf(CarQuantityOfToys + " / " + CarNumberOfToys));
+        displayBook.setText(String.valueOf(BookQuantityOfToys + " / " + BookNumberOfToys));
     }
 
     /**
@@ -263,5 +324,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
-
