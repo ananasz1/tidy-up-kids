@@ -1,77 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
-    <style name="greenButton">
-        <item name="android:background">@drawable/shape_button_green</item>
-        <item name="android:textColor">@color/greenButtonText</item>
-        <item name="android:paddingLeft">@dimen/button_padding_left</item>
-        <item name="android:layout_marginRight">@dimen/button_side</item>
-        <item name="android:layout_marginLeft">@dimen/button_side</item>
-        <item name="android:layout_marginBottom">@dimen/button_bottom</item>
+
+    <style name="counter">
+        <item name="android:textSize">@dimen/counter_text</item>
+        <item name="android:textColor">@color/counterText</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:fontFamily">cursive</item>
     </style>
 
-    <style name="purpleButton">
-        <item name="android:background">@drawable/shape_button_purple</item>
-        <item name="android:textColor">@color/purpleButtonText</item>
+    <style name="myButton">
         <item name="android:paddingLeft">@dimen/button_padding_left</item>
-        <item name="android:layout_marginRight">@dimen/button_side</item>
-        <item name="android:layout_marginLeft">@dimen/button_side</item>
-        <item name="android:layout_marginBottom">@dimen/button_bottom</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">@dimen/button_padding_right</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginLeft">@dimen/button_side</item>
+        <item name="android:layout_marginRight">@dimen/button_side</item>
+        <item name="android:layout_marginBottom">@dimen/button_bottom</item>
+    </style>
+
+    <style name="myButton.Green">
+        <item name="android:textColor">@color/greenButtonText</item>
+        <item name="android:background">@drawable/shape_button_green</item>
+    </style>
+
+    <style name="myButton.Purple">
+        <item name="android:textColor">@color/purpleButtonText</item>
+        <item name="android:background">@drawable/shape_button_purple</item>
     </style>
 
     <style name="resetButton">
-        <item name="android:background">@drawable/shape_button_reset</item>
         <item name="android:textColor">@color/resetButtonText</item>
-        <item name="android:padding">@dimen/reset_button_padding</item>
-        <item name="android:layout_marginRight">@dimen/button_side</item>
-        <item name="android:layout_marginLeft">@dimen/button_side</item>
-        <item name="android:layout_marginBottom">@dimen/reset_bottom</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_gravity">center_horizontal</item>
-    </style>
-
-    <style name="textKid">
-        <item name="android:padding">@dimen/text_kid_padding</item>
-        <item name="android:textSize">@dimen/text_kid_size</item>
-        <item name="android:textColor">@color/kidText</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_button_reset</item>
+        <item name="android:padding">@dimen/reset_button_padding</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:fontFamily">cursive</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginLeft">@dimen/button_side</item>
+        <item name="android:layout_marginRight">@dimen/button_side</item>
+        <item name="android:layout_marginBottom">@dimen/button_bottom</item>
+        <item name="android:layout_alignParentBottom">true</item>
     </style>
 
     <style name="score">
         <item name="android:textSize">@dimen/score_size</item>
         <item name="android:textColor">@color/scoreText</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">@dimen/score_margin</item>
         <item name="android:fontFamily">cursive</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="textKid">
+        <item name="android:textSize">@dimen/text_kid_size</item>
+        <item name="android:textColor">@color/kidText</item>
         <item name="android:gravity">center_horizontal</item>
-    </style>
-
-    <style name="counter">
-        <item name="android:textColor">@color/counterText</item>
-        <item name="android:textSize">@dimen/counter_text</item>
-        <item name="android:fontFamily">cursive</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:padding">@dimen/text_kid_padding</item>
+        <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:fontFamily">cursive</item>
     </style>
-
-
-
 </resources>
