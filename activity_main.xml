@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.vikischmideg.tidyup.MainActivity">
-
+    android:fillViewport="true"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,9 +36,12 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/name1"
                         style="@style/textKid"
-                        android:text="Kid 1" />
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionDone"
+                        android:hint="Name Kid1" />
 
                     <TextView
                         android:id="@+id/kid_1_score"
@@ -46,37 +49,35 @@
                         android:text="0" />
 
                     <Button
-                        style="@style/greenButton"
+                        style="@style/myButton.Green"
                         android:drawableLeft="@drawable/doll"
                         android:onClick="addFourForKid1"
                         android:text="+4 points" />
 
                     <Button
-                        style="@style/greenButton"
+                        style="@style/myButton.Green"
                         android:drawableLeft="@drawable/plush"
                         android:onClick="addThreeForKid1"
                         android:text="+3 points" />
 
                     <Button
-                        style="@style/greenButton"
+                        style="@style/myButton.Green"
                         android:drawableLeft="@drawable/car"
                         android:onClick="addTwoForKid1"
                         android:text="+2 points" />
 
                     <Button
-                        style="@style/greenButton"
+                        style="@style/myButton.Green"
                         android:drawableLeft="@drawable/book"
                         android:onClick="addOneForKid1"
                         android:text="+1 point" />
-
-
                 </LinearLayout>
 
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="16dp"
-                    android:background="#FF9800" />
+                    android:background="#ffff9800" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -84,9 +85,12 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/name2"
                         style="@style/textKid"
-                        android:text="Kid 2" />
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionDone"
+                        android:hint="Name Kid2" />
 
                     <TextView
                         android:id="@+id/kid_2_score"
@@ -94,39 +98,39 @@
                         android:text="0" />
 
                     <Button
-                        style="@style/purpleButton"
+                        style="@style/myButton.Purple"
                         android:drawableLeft="@drawable/doll"
                         android:onClick="addFourForKid2"
                         android:text="+4 points" />
 
                     <Button
-                        style="@style/purpleButton"
+                        style="@style/myButton.Purple"
                         android:drawableLeft="@drawable/plush"
                         android:onClick="addThreeForKid2"
                         android:text="+3 points" />
 
                     <Button
-                        style="@style/purpleButton"
+                        style="@style/myButton.Purple"
                         android:drawableLeft="@drawable/car"
                         android:onClick="addTwoForKid2"
                         android:text="+2 points" />
 
                     <Button
-                        style="@style/purpleButton"
+                        style="@style/myButton.Purple"
                         android:drawableLeft="@drawable/book"
                         android:onClick="addOneForKid2"
                         android:text="+1 point" />
-
-
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
-            android:background="#FF9800" />
+            android:layout_marginRight="16dp"
+            android:background="#ffff9800" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -146,7 +150,6 @@
                 android:layout_marginBottom="6dp"
                 android:orientation="vertical">
 
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -164,7 +167,6 @@
                         android:id="@+id/dollQuantity"
                         style="@style/counter"
                         android:text="0 / 8" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -183,7 +185,6 @@
                         android:id="@+id/plushQuantity"
                         style="@style/counter"
                         android:text="0 / 16" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -202,7 +203,6 @@
                         android:id="@+id/carQuantity"
                         style="@style/counter"
                         android:text="0 / 12" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -221,18 +221,13 @@
                         android:id="@+id/bookQuantity"
                         style="@style/counter"
                         android:text="0 / 10" />
-
                 </LinearLayout>
 
                 <Button
                     style="@style/resetButton"
                     android:onClick="resetScore"
                     android:text="tidy up again!" />
-
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
-
-
-
-</LinearLayout>
+</ScrollView>
