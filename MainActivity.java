@@ -62,6 +62,23 @@ public class MainActivity extends AppCompatActivity {
      */
     private com.google.android.gms.common.api.GoogleApiClient client2;
 
+    public void inactiveButton(Button button) {
+        button.setEnabled(false);
+        button.setClickable(false);
+        button.setBackgroundResource(R.drawable.shape_button_inactive);
+    }
+
+    public void activeButton1(Button button) {
+        button.setEnabled(true);
+        button.setClickable(true);
+        button.setBackgroundResource(R.drawable.shape_button_green);
+    }
+
+    public void activeButton2(Button button) {
+        button.setEnabled(true);
+        button.setClickable(true);
+        button.setBackgroundResource(R.drawable.shape_button_purple);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +127,14 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt(STATE_BOOK, BookQuantityOfToys);
 
         savedInstanceState.putBoolean("state_button1", button1.isEnabled());
+        savedInstanceState.putBoolean("state_button2", button2.isEnabled());
+        savedInstanceState.putBoolean("state_button3", button3.isEnabled());
+        savedInstanceState.putBoolean("state_button4", button4.isEnabled());
+        savedInstanceState.putBoolean("state_button5", button5.isEnabled());
+        savedInstanceState.putBoolean("state_button6", button6.isEnabled());
+        savedInstanceState.putBoolean("state_button7", button7.isEnabled());
+        savedInstanceState.putBoolean("state_button8", button8.isEnabled());
+
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -122,11 +147,35 @@ public class MainActivity extends AppCompatActivity {
         PlushQuantityOfToys = savedInstanceState.getInt(STATE_PLUSH);
         CarQuantityOfToys = savedInstanceState.getInt(STATE_CAR);
         BookQuantityOfToys = savedInstanceState.getInt(STATE_BOOK);
+
         Boolean enabled = savedInstanceState.getBoolean("state_button1");
         button1.setEnabled(enabled);
+        if (enabled){activeButton1(button1);} else {inactiveButton(button1);}
+        enabled = savedInstanceState.getBoolean("state_button2");
+        button2.setEnabled(enabled);
+        if (enabled){activeButton1(button2);} else {inactiveButton(button2);}
+        enabled = savedInstanceState.getBoolean("state_button3");
+        button3.setEnabled(enabled);
+        if (enabled){activeButton1(button3);} else {inactiveButton(button3);}
+        enabled = savedInstanceState.getBoolean("state_button4");
+        button4.setEnabled(enabled);
+        if (enabled){activeButton1(button4);} else {inactiveButton(button4);}
+        enabled = savedInstanceState.getBoolean("state_button5");
+        button5.setEnabled(enabled);
+        if (enabled){activeButton2(button5);} else {inactiveButton(button5);}
+        enabled = savedInstanceState.getBoolean("state_button6");
+        button6.setEnabled(enabled);
+        if (enabled){activeButton2(button6);} else {inactiveButton(button6);}
+        enabled = savedInstanceState.getBoolean("state_button7");
+        button7.setEnabled(enabled);
+        if (enabled){activeButton2(button7);} else {inactiveButton(button7);}
+        enabled = savedInstanceState.getBoolean("state_button8");
+        button8.setEnabled(enabled);
+        if (enabled){activeButton2(button8);} else {inactiveButton(button8);}
 
         redisplay();
     }
+
 
 
 
@@ -137,8 +186,6 @@ public class MainActivity extends AppCompatActivity {
     public void K1PushButton(int pointsPerToy) {
         scoreKid1 = scoreKid1 + pointsPerToy;
         displayForKid1(scoreKid1);
-
-
     }
 
 
@@ -156,15 +203,10 @@ public class MainActivity extends AppCompatActivity {
         if (DollQuantityOfToys < DollNumberOfToys) {
             DollQuantityOfToys = DollQuantityOfToys + 1;
             K1PushButton(4);
-
-        } else {
-            button1.setEnabled(false);
-            button1.setClickable(false);
-            button1.setBackgroundResource(R.drawable.shape_button_inactive);
-            button5.setEnabled(false);
-            button5.setClickable(false);
-            button5.setBackgroundResource(R.drawable.shape_button_inactive);
-
+        }
+        if (DollQuantityOfToys >= DollNumberOfToys){
+            inactiveButton(button1);
+            inactiveButton(button5);
         }
 
         //**display the quantity of toys the player has from one type / the maximum */
@@ -181,13 +223,10 @@ public class MainActivity extends AppCompatActivity {
         if (PlushQuantityOfToys < PlushNumberOfToys) {
             PlushQuantityOfToys = PlushQuantityOfToys + 1;
             K1PushButton(3);
-        } else {
-            button2.setEnabled(false);
-            button2.setClickable(false);
-            button2.setBackgroundResource(R.drawable.shape_button_inactive);
-            button6.setEnabled(false);
-            button6.setClickable(false);
-            button6.setBackgroundResource(R.drawable.shape_button_inactive);
+        }
+        if (PlushQuantityOfToys >= PlushNumberOfToys){
+            inactiveButton(button2);
+            inactiveButton(button6);
         }
 
         //**display the quantity of toys the player has from one type / the maximum*/
@@ -203,13 +242,10 @@ public class MainActivity extends AppCompatActivity {
         if (CarQuantityOfToys < CarNumberOfToys) {
             CarQuantityOfToys = CarQuantityOfToys + 1;
             K1PushButton(2);
-        } else {
-            button3.setEnabled(false);
-            button3.setClickable(false);
-            button3.setBackgroundResource(R.drawable.shape_button_inactive);
-            button7.setEnabled(false);
-            button7.setClickable(false);
-            button7.setBackgroundResource(R.drawable.shape_button_inactive);
+        }
+        if (CarQuantityOfToys >= CarNumberOfToys){
+            inactiveButton(button3);
+            inactiveButton(button7);
         }
 
 
@@ -227,13 +263,10 @@ public class MainActivity extends AppCompatActivity {
         if (BookQuantityOfToys < BookNumberOfToys) {
             BookQuantityOfToys = BookQuantityOfToys + 1;
             K1PushButton(1);
-        } else {
-            button4.setEnabled(false);
-            button4.setClickable(false);
-            button4.setBackgroundResource(R.drawable.shape_button_inactive);
-            button8.setEnabled(false);
-            button8.setClickable(false);
-            button8.setBackgroundResource(R.drawable.shape_button_inactive);
+        }
+        if (BookQuantityOfToys >= BookNumberOfToys){
+            inactiveButton(button4);
+            inactiveButton(button8);
         }
         //**display the quantity of toys the player has from one type / the maximum quantity*/
         TextView txt = (TextView) findViewById(R.id.bookQuantity);
@@ -257,15 +290,12 @@ public class MainActivity extends AppCompatActivity {
         if (DollQuantityOfToys < DollNumberOfToys) {
             DollQuantityOfToys = DollQuantityOfToys + 1;
             K2PushButton(4);
-        } else {
-            button1.setEnabled(false);
-            button1.setClickable(false);
-            button1.setBackgroundResource(R.drawable.shape_button_inactive);
-            button5.setEnabled(false);
-            button5.setClickable(false);
-            button5.setBackgroundResource(R.drawable.shape_button_inactive);
-
         }
+        if ((DollQuantityOfToys >= DollNumberOfToys)){
+            inactiveButton(button1);
+            inactiveButton(button5);
+        }
+
         //**display the quantity of toys the player has from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.dollQuantity);
         txt.setText(DollQuantityOfToys + " / " + DollNumberOfToys);
@@ -279,15 +309,12 @@ public class MainActivity extends AppCompatActivity {
         if (PlushQuantityOfToys < PlushNumberOfToys) {
             PlushQuantityOfToys = PlushQuantityOfToys + 1;
             K2PushButton(3);
-        } else {
-            button2.setEnabled(false);
-            button2.setClickable(false);
-            button2.setBackgroundResource(R.drawable.shape_button_inactive);
-            button6.setEnabled(false);
-            button6.setClickable(false);
-            button6.setBackgroundResource(R.drawable.shape_button_inactive);
-
         }
+        if (PlushQuantityOfToys >= PlushNumberOfToys){
+            inactiveButton(button2);
+            inactiveButton(button6);
+        }
+
         //**display the quantity of toys the player has from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.plushQuantity);
         txt.setText(PlushQuantityOfToys + " / " + PlushNumberOfToys);
@@ -301,14 +328,12 @@ public class MainActivity extends AppCompatActivity {
         if (CarQuantityOfToys < CarNumberOfToys) {
             CarQuantityOfToys = CarQuantityOfToys + 1;
             K2PushButton(2);
-        } else {
-            button3.setEnabled(false);
-            button3.setClickable(false);
-            button3.setBackgroundResource(R.drawable.shape_button_inactive);
-            button7.setEnabled(false);
-            button7.setClickable(false);
-            button7.setBackgroundResource(R.drawable.shape_button_inactive);
         }
+        if (CarQuantityOfToys >= CarNumberOfToys){
+            inactiveButton(button3);
+            inactiveButton(button7);
+        }
+
         //**display the quantity of toys the player has from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.carQuantity);
         txt.setText(CarQuantityOfToys + " / " + CarNumberOfToys);
@@ -322,14 +347,12 @@ public class MainActivity extends AppCompatActivity {
         if (BookQuantityOfToys < BookNumberOfToys) {
             BookQuantityOfToys = BookQuantityOfToys + 1;
             K2PushButton(1);
-        } else {
-            button4.setEnabled(false);
-            button4.setClickable(false);
-            button4.setBackgroundResource(R.drawable.shape_button_inactive);
-            button8.setEnabled(false);
-            button8.setClickable(false);
-            button8.setBackgroundResource(R.drawable.shape_button_inactive);
         }
+        if (BookQuantityOfToys >= BookNumberOfToys){
+            inactiveButton(button4);
+            inactiveButton(button8);
+        }
+
         //**display the quantity of toys the player has from one type / the maximum*/
         TextView txt = (TextView) findViewById(R.id.bookQuantity);
         txt.setText(BookQuantityOfToys + " / " + BookNumberOfToys);
@@ -358,15 +381,6 @@ public class MainActivity extends AppCompatActivity {
         PlushQuantityOfToys = 0;
         CarQuantityOfToys = 0;
         BookQuantityOfToys = 0;
-        View Button1 = findViewById(R.id.fourKid1);
-        View Button2 = findViewById(R.id.threeKid1);
-        View Button3 = findViewById(R.id.twoKid1);
-        View Button4 = findViewById(R.id.oneKid1);
-        View Button5 = findViewById(R.id.fourKid2);
-        View Button6 = findViewById(R.id.threeKid2);
-        View Button7 = findViewById(R.id.twoKid2);
-        View Button8 = findViewById(R.id.oneKid2);
-
 
         displayForKid1(scoreKid1);
         displayForKid2(scoreKid2);
@@ -375,32 +389,14 @@ public class MainActivity extends AppCompatActivity {
         displaySetCounterText(CarQuantityOfToys + " / " + CarNumberOfToys, (TextView) findViewById(R.id.carQuantity));
         displaySetCounterText(BookQuantityOfToys + " / " + BookNumberOfToys, (TextView) findViewById(R.id.bookQuantity));
 
-        Button1.setBackgroundResource(R.drawable.shape_button_green);
-        Button1.setClickable(true);
-        Button1.setEnabled(true);
-        Button2.setBackgroundResource(R.drawable.shape_button_green);
-        Button2.setClickable(true);
-        Button2.setEnabled(true);
-        Button3.setBackgroundResource(R.drawable.shape_button_green);
-        Button3.setClickable(true);
-        Button3.setEnabled(true);
-        Button4.setBackgroundResource(R.drawable.shape_button_green);
-        Button4.setClickable(true);
-        Button4.setEnabled(true);
-        Button5.setBackgroundResource(R.drawable.shape_button_purple);
-        Button5.setClickable(true);
-        Button5.setEnabled(true);
-        Button6.setBackgroundResource(R.drawable.shape_button_purple);
-        Button6.setClickable(true);
-        Button6.setEnabled(true);
-        Button7.setBackgroundResource(R.drawable.shape_button_purple);
-        Button7.setClickable(true);
-        Button7.setEnabled(true);
-        Button8.setBackgroundResource(R.drawable.shape_button_purple);
-        Button8.setClickable(true);
-        Button8.setEnabled(true);
-
-
+        activeButton1(button1);
+        activeButton1(button2);
+        activeButton1(button3);
+        activeButton1(button4);
+        activeButton2(button5);
+        activeButton2(button6);
+        activeButton2(button7);
+        activeButton2(button8);
     }
 
     /**
@@ -413,8 +409,6 @@ public class MainActivity extends AppCompatActivity {
         displayPlush.setText(String.valueOf(PlushQuantityOfToys + " / " + PlushNumberOfToys));
         displayCar.setText(String.valueOf(CarQuantityOfToys + " / " + CarNumberOfToys));
         displayBook.setText(String.valueOf(BookQuantityOfToys + " / " + BookNumberOfToys));
-
-
 
         return null;
     }
