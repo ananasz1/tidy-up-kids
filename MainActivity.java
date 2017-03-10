@@ -3,8 +3,11 @@ package com.example.vikischmideg.tidyup;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     Button button6;
     Button button7;
     Button button8;
+
+    EditText editName1;
+    EditText editName2;
 
     TextView displayKid1;
     TextView displayKid2;
@@ -80,12 +86,34 @@ public class MainActivity extends AppCompatActivity {
         button.setBackgroundResource(R.drawable.shape_button_purple);
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         setContentView(R.layout.activity_main);
+
+        editName1 = (EditText) findViewById(R.id.name1);
+        editName1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId== EditorInfo.IME_ACTION_DONE){
+                    editName1.clearFocus();
+                }
+                return false;
+            }
+        });
+        editName2 = (EditText) findViewById(R.id.name2);
+        editName2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId== EditorInfo.IME_ACTION_DONE){
+                    editName2.clearFocus();
+                }
+                return false;
+            }
+        });
         displayKid1 = (TextView) findViewById(R.id.kid_1_score);
         displayKid2 = (TextView) findViewById(R.id.kid_2_score);
         displayDoll = (TextView) findViewById(R.id.dollQuantity);
@@ -175,8 +203,6 @@ public class MainActivity extends AppCompatActivity {
 
         redisplay();
     }
-
-
 
 
     /**
